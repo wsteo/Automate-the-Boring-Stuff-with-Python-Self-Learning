@@ -1,23 +1,18 @@
 #! python3
-# mclip.py - A multi-clipboard program.
+# mclip.py - A multi-clipboard program
+TEXT = {'agree': """Yes, I agree. That sounds fine to me.""",
+        'busy' : """Sorry, can we do this later this week or next week?""",
+        'upsell': """Would you consider making this a monthly donation?"""}
 
-TEXT = {
-    "agree": """Yes, I agree. That sounds fine to me.""",
-    "busy": """Sorry, con we do this later this week or next week?""",
-    "upsell": """Would you consider making this a monthly donation?""",
-}
-
-import sys, pyperclip3
-
+import sys, pyperclip
 if len(sys.argv) < 2:
-    print("Usage: python mclip.py [keyphrase] - copy phrase text")
+    print('Usage: python mclip.py [keyphase] - copy phrase text')
     sys.exit()
-
 keyphrase = sys.argv[1]
 
 if keyphrase in TEXT:
-
-    pyperclip3.copy(TEXT[keyphrase])
-    print("Text for " + keyphrase + " copied to clipboard.")
+    pyperclip.copy(TEXT[keyphrase])
+    print('Text for ' + keyphrase + ' copied to clipboard.')
 else:
-    print("There is no text for " + keyphrase)
+    print('There is no text for ' + keyphrase)
+
